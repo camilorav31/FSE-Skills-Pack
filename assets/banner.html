@@ -21,16 +21,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #0d1117;
+            background-color: #0a0a0d;
             padding: 20px;
         }
 
         .banner {
             width: 1200px;
             height: 400px;
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 60%, #1f1f2e 100%);
+            background: linear-gradient(135deg, #0a0a0d 0%, #170810 55%, #230b18 100%);
             border-radius: 16px;
-            border: 1px solid #30363d;
+            border: 1px solid #33232b;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -51,12 +51,12 @@
             z-index: 1;
         }
 
-        /* Glowing Orbs */
+        /* Glowing Orbs, both in the Rebel Pink family for depth */
         .glow-vtex {
             position: absolute;
             width: 350px;
             height: 350px;
-            background: radial-gradient(circle, rgba(255, 30, 110, 0.25) 0%, rgba(0,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(247, 25, 99, 0.28) 0%, rgba(0,0,0,0) 70%);
             top: -100px;
             left: -50px;
             z-index: 1;
@@ -66,7 +66,7 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.15) 0%, rgba(0,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(176, 18, 79, 0.20) 0%, rgba(0,0,0,0) 70%);
             bottom: -150px;
             right: 100px;
             z-index: 1;
@@ -80,7 +80,7 @@
             z-index: 3;
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
             font-size: 11px;
-            color: #4d5561;
+            color: #6b5760;
             letter-spacing: 0.5px;
         }
 
@@ -105,14 +105,14 @@
             width: 30px;
             height: 30px;
             border-radius: 8px;
-            background: linear-gradient(135deg, #ff1e6e 0%, #f59e0b 100%);
+            background: linear-gradient(135deg, #f71963 0%, #b0123f 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: "SFMono-Regular", Consolas, Menlo, monospace;
             font-weight: 800;
             font-size: 14px;
-            color: #0d1117;
+            color: #ffffff;
             margin-right: 4px;
         }
 
@@ -126,15 +126,15 @@
         }
 
         .badge-vtex {
-            background-color: rgba(255, 30, 110, 0.15);
-            color: #ff1e6e;
-            border: 1px solid rgba(255, 30, 110, 0.4);
+            background-color: #f71963;
+            color: #ffffff;
+            border: 1px solid #f71963;
         }
 
         .badge-claude {
-            background-color: rgba(217, 119, 6, 0.15);
-            color: #f59e0b;
-            border: 1px solid rgba(217, 119, 6, 0.4);
+            background-color: rgba(255, 255, 255, 0.06);
+            color: #d8c9ce;
+            border: 1px solid rgba(255, 255, 255, 0.16);
         }
 
         h1 {
@@ -147,13 +147,13 @@
         }
 
         h1 span {
-            background: linear-gradient(90deg, #ff1e6e 0%, #f59e0b 100%);
+            background: linear-gradient(90deg, #f71963 0%, #ff6fa0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         p {
-            color: #8b949e;
+            color: #a98a96;
             font-size: 16px;
             line-height: 1.55;
             max-width: 480px;
@@ -178,7 +178,7 @@
         }
 
         .stat-label {
-            color: #6e7681;
+            color: #7d6670;
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -187,7 +187,7 @@
         .stat-divider {
             width: 1px;
             align-self: stretch;
-            background: #30363d;
+            background: #3a2430;
         }
 
         /* Right Terminal Area */
@@ -204,24 +204,24 @@
             width: 100%;
             padding: 1px;
             border-radius: 11px;
-            background: linear-gradient(160deg, rgba(255,30,110,0.35), rgba(48,54,61,0.4) 40%, rgba(245,158,11,0.25));
+            background: linear-gradient(160deg, rgba(247,25,99,0.45), rgba(58,36,48,0.5) 45%, rgba(176,18,79,0.3));
             box-shadow: 0 15px 30px rgba(0,0,0,0.6);
         }
 
         .terminal {
             width: 100%;
-            background-color: #090d11;
+            background-color: #0c0609;
             border-radius: 10px;
             overflow: hidden;
         }
 
         .terminal-header {
-            background-color: #161b22;
+            background-color: #170d12;
             padding: 10px 16px;
             display: flex;
             align-items: center;
             gap: 8px;
-            border-bottom: 1px solid #21262d;
+            border-bottom: 1px solid #241318;
         }
 
         .dot {
@@ -235,7 +235,7 @@
         .dot-green { background-color: #27c93f; }
 
         .terminal-title {
-            color: #6e7681;
+            color: #7d6670;
             font-size: 12px;
             font-family: monospace;
             margin-left: 10px;
@@ -256,7 +256,7 @@
         }
 
         .prompt {
-            color: #ff1e6e;
+            color: #f71963;
             margin-right: 10px;
             font-weight: bold;
         }
@@ -266,7 +266,7 @@
         }
 
         .keyword {
-            color: #d97706;
+            color: #ff6fa0;
             font-weight: bold;
         }
 
@@ -284,7 +284,7 @@
             display: inline-block;
             width: 7px;
             height: 14px;
-            background: #f59e0b;
+            background: #f71963;
             margin-left: 2px;
             vertical-align: middle;
             border-radius: 1px;
@@ -292,12 +292,12 @@
 
         .skills-block {
             margin-top: 6px;
-            border-top: 1px solid #21262d;
+            border-top: 1px solid #241318;
             padding-top: 12px;
         }
 
         .skills-label {
-            color: #8b949e;
+            color: #7d6670;
             font-size: 11px;
             display: block;
             margin-bottom: 8px;
@@ -312,7 +312,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 5px;
             padding: 3px 7px;
-            color: #58a6ff;
+            color: #ff8fb3;
             font-size: 11px;
             margin: 2px 4px 2px 0;
         }
@@ -333,7 +333,7 @@
         <div class="grid-bg"></div>
         <div class="glow-vtex"></div>
         <div class="glow-claude"></div>
-        <div class="version-tag">v1.0.0 · plugin</div>
+        <div class="version-tag">v1.0.0 &middot; plugin</div>
 
         <!-- Left Column: Content -->
         <div class="content">
@@ -343,7 +343,7 @@
                 <span class="badge badge-claude">Claude Code Plugin</span>
             </div>
             <h1>FSE Skills <span>Pack</span></h1>
-            <p>Skills de diagnóstico, escalación y redacción para el equipo de Field Software Engineering de VTEX &mdash; instalables por cualquier miembro del equipo en dos comandos.</p>
+            <p>Skills de diagnóstico, escalación y redacción para el equipo de Field Software Engineering de VTEX, instalables por cualquier miembro del equipo en dos comandos.</p>
 
             <div class="stats-row">
                 <div class="stat">
@@ -371,7 +371,7 @@
                         <div class="dot dot-red"></div>
                         <div class="dot dot-yellow"></div>
                         <div class="dot dot-green"></div>
-                        <span class="terminal-title">claude-code — fse-skills-pack</span>
+                        <span class="terminal-title">claude-code &middot; fse-skills-pack</span>
                     </div>
                     <div class="terminal-body">
                         <div class="cmd-line">

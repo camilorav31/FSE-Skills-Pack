@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="FSE Skills Pack — VTEX FSE · Claude Code Plugin" width="100%">
+  <img src="assets/banner.png" alt="FSE Skills Pack · VTEX FSE · Claude Code Plugin" width="100%">
 </p>
 
 # FSE Skills Pack
@@ -43,7 +43,7 @@ Eso es todo. Claude Code descarga el repo, instala los skills y quedan disponibl
 
 ## Seguridad y mantenimiento
 
-- Este repo es **público**, pero no contiene datos de clientes, credenciales ni URLs internas — solo reglas de proceso y redacción. Antes de agregar un skill nuevo o editar uno existente, revisa que no incluya datos sensibles de una cuenta real.
+- Este repo es **público**, pero no contiene datos de clientes, credenciales ni URLs internas: solo reglas de proceso y redacción. Antes de agregar un skill nuevo o editar uno existente, revisa que no incluya datos sensibles de una cuenta real.
 - Para editar un skill: modifica su `SKILL.md` en `plugins/fse-skills-pack/skills/<skill>/`, sube el cambio con un mensaje claro y, si aplica, sube el número de `version` en `plugins/fse-skills-pack/.claude-plugin/plugin.json`.
 
 ## Estructura del repo
