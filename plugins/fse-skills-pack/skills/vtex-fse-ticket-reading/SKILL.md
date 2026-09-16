@@ -38,6 +38,14 @@ Usa las herramientas de búsqueda de Slack disponibles en la sesión para buscar
 
 Si las búsquedas no arrojan nada relevante, dilo explícitamente ("no encontré incidentes ni deploys relacionados en Slack en el último mes") en vez de omitir el paso silenciosamente; esa ausencia de evidencia también es información útil para el diagnóstico.
 
+### Cómo reportar un hallazgo de Slack que menciona un ticket
+
+Es común que la búsqueda encuentre un mensaje que referencia el mismo ticket u otro ticket de Zendesk por su número (por ejemplo, en un hilo de incidente o en el canal `escalations-global-fse`). Antes de reportarlo al agente:
+
+- **Nombra el hallazgo con precisión**, usando el vocabulario de `vtex-fse-knowledge-base` (sección 3): di si es un incidente, una solicitud de revisión prioritaria de CE en `escalations-global-fse`, o un escalation real a PS. No le llames "escalation" a cualquier mención que encuentres solo porque el canal o el mensaje contienen esa palabra; son workflows distintos y el agente necesita saber cuál es cuál para decidir qué hacer.
+- **Sé concreto sobre qué encontraste**, no sobre el número de ticket solamente: cita o resume el mensaje puntual (canal, y qué dice), para que el agente sepa exactamente a qué te estás refiriendo en vez de una alusión vaga a "el ticket X".
+- **Nunca digas que no puedes revisar un ticket de Zendesk porque no tienes acceso a Zendesk.** Claude nunca tiene acceso directo a Zendesk; por eso el agente pega el contenido del ticket a mano en primer lugar, y repetir esa limitación como si fuera un hallazgo nuevo no aporta nada. Si el mensaje de Slack no trae suficiente detalle sobre ese otro caso, dilo así ("el mensaje en Slack no da más contexto sobre ese ticket") y, si hace falta más detalle, sugiere como siguiente paso que el agente abra ese ticket puntual en Zendesk, en vez de presentarlo como algo que a ti te falta poder hacer.
+
 ## Paso 5: Síntesis para el agente
 
 Antes de pasar a redactar cualquier texto para el cliente o para producto, resume para el agente (no para el cliente) en pocas líneas: qué está confirmado, qué sigue siendo hipótesis, si la respuesta previa de Copilot era correcta o no y qué implica eso para la respuesta a dar, y qué encontraste (o no) en Slack o en el catálogo de known issues sobre incidentes o deploys relacionados. A partir de esta síntesis, continúa con `vtex-fse-knowledge-base` si hay duda de scope o de a quién escalar, con `vtex-fse-product-escalation` si el caso se va a escalar, y con `vtex-fse-client-writing` para el tono y formato del texto final.
@@ -47,3 +55,13 @@ Antes de pasar a redactar cualquier texto para el cliente o para producto, resum
 **Input:** el agente pega un ticket donde el cliente reporta que no puede generar un cupón con descuento por categoría, y el ticket ya tiene una respuesta previa firmada "Field Software Engineering" que le dice al cliente que use el flujo antiguo de "Promotions Classic" para configurarlo, pero el cliente responde que no encuentra esa opción en su Admin.
 
 **Análisis esperado:** identificar que la respuesta previa de Copilot referencia "Promotions Classic", verificar en la documentación oficial si ese flujo sigue vigente o fue reemplazado (por ejemplo, por el motor de Promotions actual), y si resultó estar desactualizado, señalarlo explícitamente para el agente: la respuesta anterior está obsoleta y hay que corregirla, indicando el flujo vigente. Además, buscar en Slack si hay reportes recientes de otros clientes con la misma confusión tras un cambio de UI en Promotions, lo cual reforzaría que el problema es la documentación/respuesta desactualizada y no un bug puntual de la cuenta.
+
+## Ejemplo: reportar un hallazgo de Slack sin ambigüedad
+
+**Input:** el agente pega el ticket `#ABC`, y al buscar en Slack aparece un mensaje en el canal `escalations-global-fse` que menciona ese mismo número de ticket.
+
+**Mal reporte (ambiguo, no lo hagas):** "Encontré un escalation para este mismo problema en el ticket `#ABC`, pero no lo puedo revisar porque no tengo acceso a Zendesk."
+
+**Por qué está mal:** llama "escalation" a algo que en realidad es una solicitud de revisión prioritaria de Commerce Engineers hacia FSE (ver `vtex-fse-knowledge-base`, sección 3), no dice qué decía el mensaje encontrado, y presenta la falta de acceso a Zendesk como una limitación relevante cuando en realidad es esperable: por eso el agente pegó el ticket a mano.
+
+**Reporte correcto:** "En el canal `escalations-global-fse` encontré un mensaje de [fecha/persona si aplica] pidiendo revisión prioritaria del ticket `#ABC` por [motivo que dice el mensaje]. No es un escalation a PS ni un incidente. El mensaje no da más contexto técnico sobre el caso; si necesitas más detalle, revisa el ticket `#ABC` directamente en Zendesk."

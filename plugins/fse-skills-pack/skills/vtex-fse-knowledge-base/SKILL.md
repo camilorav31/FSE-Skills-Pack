@@ -54,6 +54,16 @@ Cuando el agente esté diagnosticando un caso y una de estas herramientas podrí
 
 ## 3. Cuándo y cómo escalar
 
+### Vocabulario: escalation, incidente, y el canal `escalations-global-fse`
+
+Estos tres términos circulan sueltos en Slack y no son sinónimos; no los mezcles al analizar un ticket ni al reportarle algo al agente, porque cada uno implica un workflow y una urgencia distintos:
+
+- **Escalation (a Product Support)**: el ticket que un FSE abre hacia PS o Engineering después de agotar su validación (ver regla general más abajo, y la estructura completa en `vtex-fse-product-escalation`). Es lo único que este pack llama "escalation" salvo que el agente use el término de otra forma de manera explícita.
+- **Incidente**: workflow reservado para gravedad real que impide vender (checkout caído, sitio caído, cualquier cosa que no pueda esperar el SLA normal de un ticket a PS). Se dispara con un workflow dedicado de Slack que crea un canal nuevo y llama de inmediato al equipo de producto a revisar. Justamente porque interrumpe el trabajo de ese equipo, siempre debe existir (creado antes o en paralelo, con la evidencia ya recolectada) un escalation a PS que sustente el incidente: el incidente no reemplaza ese ticket, lo antecede o lo acompaña.
+- **Canal `escalations-global-fse`**: a pesar del nombre, esto NO es un escalation de FSE hacia PS. Es el workflow que usan los Commerce Engineers (CE) para pedirle a FSE que revise un ticket con prioridad. Si al buscar en Slack aparece una mención en este canal, descríbela como lo que es ("solicitud de revisión prioritaria de CE hacia FSE"), nunca como "un escalation": llamarlo así confunde al agente sobre qué tipo de referencia encontraste y qué acción implica.
+
+Cuando `vtex-fse-ticket-reading` busque contexto en Slack y encuentre una mención del mismo ticket u otro relacionado, identifica primero a cuál de estos tres tipos corresponde antes de reportarlo al agente; ver ahí mismo cómo describir el hallazgo con precisión.
+
 ### Regla general: agotar validación FSE antes de escalar
 
 Antes de escalar a PS, el FSE debe haber agotado las validaciones que están a su alcance: reproducir o entender el síntoma, revisar logs/HAR/API (con las herramientas de la sección 2), descartar causas obvias (permisos, configuración de cuenta, error de usuario), y formular una hipótesis de causa raíz razonablemente sustentada. El escalation debe documentar explícitamente qué se descartó y por qué, no solo describir el síntoma.
