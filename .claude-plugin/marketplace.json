@@ -1,5 +1,6 @@
 {
   "name": "fse-skills-pack",
+  "description": "Skills de Claude Code para el equipo de Field Software Engineering (FSE) de VTEX.",
   "owner": {
     "name": "Camilo Ramirez",
     "email": "juan.camilo@vtex.com"
