@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSE Skills Pack - Banner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html, body {
+            width: 1240px;
+            height: 440px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0d1117;
+            padding: 20px;
+        }
+
+        .banner {
+            width: 1200px;
+            height: 400px;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 60%, #1f1f2e 100%);
+            border-radius: 16px;
+            border: 1px solid #30363d;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Decorative Grid Background */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
+        }
+
+        /* Glowing Orbs */
+        .glow-vtex {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 30, 110, 0.25) 0%, rgba(0,0,0,0) 70%);
+            top: -100px;
+            left: -50px;
+            z-index: 1;
+        }
+
+        .glow-claude {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.15) 0%, rgba(0,0,0,0) 70%);
+            bottom: -150px;
+            right: 100px;
+            z-index: 1;
+        }
+
+        /* Faint version tag, top-right corner of the banner */
+        .version-tag {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            z-index: 3;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 11px;
+            color: #4d5561;
+            letter-spacing: 0.5px;
+        }
+
+        /* Left Content Area */
+        .content {
+            flex: 1.1;
+            padding: 50px 60px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 22px;
+            align-items: center;
+        }
+
+        .mark {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #ff1e6e 0%, #f59e0b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+            font-weight: 800;
+            font-size: 14px;
+            color: #0d1117;
+            margin-right: 4px;
+        }
+
+        .badge {
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .badge-vtex {
+            background-color: rgba(255, 30, 110, 0.15);
+            color: #ff1e6e;
+            border: 1px solid rgba(255, 30, 110, 0.4);
+        }
+
+        .badge-claude {
+            background-color: rgba(217, 119, 6, 0.15);
+            color: #f59e0b;
+            border: 1px solid rgba(217, 119, 6, 0.4);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, #ff1e6e 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: #8b949e;
+            font-size: 16px;
+            line-height: 1.55;
+            max-width: 480px;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 22px;
+            margin-top: 26px;
+        }
+
+        .stat {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .stat-num {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .stat-label {
+            color: #6e7681;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            align-self: stretch;
+            background: #30363d;
+        }
+
+        /* Right Terminal Area */
+        .terminal-container {
+            flex: 0.9;
+            padding: 40px 50px 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .terminal-wrap {
+            width: 100%;
+            padding: 1px;
+            border-radius: 11px;
+            background: linear-gradient(160deg, rgba(255,30,110,0.35), rgba(48,54,61,0.4) 40%, rgba(245,158,11,0.25));
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .terminal {
+            width: 100%;
+            background-color: #090d11;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            background-color: #161b22;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background-color: #ff5f56; }
+        .dot-yellow { background-color: #ffbd2e; }
+        .dot-green { background-color: #27c93f; }
+
+        .terminal-title {
+            color: #6e7681;
+            font-size: 12px;
+            font-family: monospace;
+            margin-left: 10px;
+        }
+
+        .terminal-body {
+            padding: 20px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #c9d1d9;
+        }
+
+        .cmd-line {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .prompt {
+            color: #ff1e6e;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .command {
+            color: #e6edf3;
+        }
+
+        .keyword {
+            color: #d97706;
+            font-weight: bold;
+        }
+
+        .output {
+            color: #7ee787;
+            margin-bottom: 14px;
+            padding-left: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 7px;
+            height: 14px;
+            background: #f59e0b;
+            margin-left: 2px;
+            vertical-align: middle;
+            border-radius: 1px;
+        }
+
+        .skills-block {
+            margin-top: 6px;
+            border-top: 1px solid #21262d;
+            padding-top: 12px;
+        }
+
+        .skills-label {
+            color: #8b949e;
+            font-size: 11px;
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 3px 7px;
+            color: #58a6ff;
+            font-size: 11px;
+            margin: 2px 4px 2px 0;
+        }
+
+        .skill-tag::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #3fb950;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <div class="grid-bg"></div>
+        <div class="glow-vtex"></div>
+        <div class="glow-claude"></div>
+        <div class="version-tag">v1.0.0 · plugin</div>
+
+        <!-- Left Column: Content -->
+        <div class="content">
+            <div class="badges">
+                <div class="mark">&gt;_</div>
+                <span class="badge badge-vtex">VTEX FSE</span>
+                <span class="badge badge-claude">Claude Code Plugin</span>
+            </div>
+            <h1>FSE Skills <span>Pack</span></h1>
+            <p>Skills de diagnóstico, escalación y redacción para el equipo de Field Software Engineering de VTEX &mdash; instalables por cualquier miembro del equipo en dos comandos.</p>
+
+            <div class="stats-row">
+                <div class="stat">
+                    <span class="stat-num">6</span>
+                    <span class="stat-label">skills</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">2</span>
+                    <span class="stat-label">comandos</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">0</span>
+                    <span class="stat-label">setup manual</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Terminal Visual -->
+        <div class="terminal-container">
+            <div class="terminal-wrap">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                        <span class="terminal-title">claude-code — fse-skills-pack</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="cmd-line">
+                            <span class="prompt">&gt;</span>
+                            <span class="command"><span class="keyword">/plugin</span> marketplace add camilorav31/FSE-Skills-Pack</span>
+                        </div>
+                        <div class="cmd-line">
+                            <span class="prompt">&gt;</span>
+                            <span class="command"><span class="keyword">/plugin</span> install fse-skills-pack@fse-skills-pack</span>
+                        </div>
+                        <div class="output">✓ Plugin instalado exitosamente.<span class="cursor"></span></div>
+                        <div class="skills-block">
+                            <span class="skills-label">SKILLS ACTIVOS</span>
+                            <span class="skill-tag">ticket-reading</span>
+                            <span class="skill-tag">knowledge-base</span>
+                            <span class="skill-tag">known-issues</span>
+                            <span class="skill-tag">product-escalation</span>
+                            <span class="skill-tag">client-writing</span>
+                            <span class="skill-tag">whatsapp-copilot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

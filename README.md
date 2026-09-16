@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="FSE Skills Pack — VTEX FSE · Claude Code Plugin" width="100%">
+</p>
+
 # FSE Skills Pack
 
 Skills de [Claude Code](https://claude.com/claude-code) para el equipo de **Field Software Engineering (FSE) de VTEX**. Empaquetados como un plugin de Claude Code para que cualquier miembro del equipo los instale con dos comandos, sin copiar archivos a mano ni tocar `~/.claude`.
