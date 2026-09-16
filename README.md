@@ -1,12 +1,29 @@
 <p align="center">
-  <img src="assets/banner.png" alt="FSE Skills Pack · VTEX FSE · Claude Code Plugin" width="100%">
+  <img src="assets/banner.png" alt="FSE Skills Pack · VTEX FSE · Claude Plugin" width="100%">
 </p>
 
 # FSE Skills Pack
 
-Skills de [Claude Code](https://claude.com/claude-code) para el equipo de **Field Software Engineering (FSE) de VTEX**. Empaquetados como un plugin de Claude Code para que cualquier miembro del equipo los instale con dos comandos, sin copiar archivos a mano ni tocar `~/.claude`.
+Skills para el equipo de **Field Software Engineering (FSE) de VTEX**, empaquetados como un plugin de Claude para que cualquier miembro del equipo los instale en un par de pasos, sin copiar archivos a mano. Funciona igual en **Claude Cowork** y en **Claude Code**, porque ambos leen el mismo marketplace de este repo.
 
-## Instalación
+## Instalación desde Claude Cowork
+
+La mayoría del equipo usa Cowork, así que este es el camino recomendado:
+
+1. Abre **Customize** en la barra lateral y entra a **Plugins**.
+2. Selecciona **Add marketplace** y pega `camilorav31/FSE-Skills-Pack` (o la URL completa `https://github.com/camilorav31/FSE-Skills-Pack`).
+3. Selecciona **Browse plugins**, busca **fse-skills-pack** y haz clic en **Install**.
+4. Abre el plugin instalado para ver los 6 skills; quedan activos automáticamente y se disparan solos según el contexto de la conversación (no hace falta invocarlos por nombre).
+
+### Actualizar (Cowork)
+
+En **Customize → Plugins**, ubica el marketplace `fse-skills-pack` y haz clic en **Update** para traer la última versión.
+
+### Desinstalar (Cowork)
+
+En **Customize → Plugins**, abre el plugin `fse-skills-pack` y haz clic en **Uninstall**.
+
+## Instalación desde Claude Code
 
 Dentro de una sesión de Claude Code (`claude`), corre:
 
@@ -15,16 +32,16 @@ Dentro de una sesión de Claude Code (`claude`), corre:
 /plugin install fse-skills-pack@fse-skills-pack
 ```
 
-Eso es todo. Claude Code descarga el repo, instala los skills y quedan disponibles automáticamente en cualquier conversación (se activan solos según el contexto, no hace falta invocarlos por nombre).
+Eso es todo. Claude Code descarga el repo, instala los skills y quedan disponibles automáticamente en cualquier conversación.
 
-### Actualizar a la última versión
+### Actualizar a la última versión (Claude Code)
 
 ```
 /plugin marketplace update fse-skills-pack
 /plugin update fse-skills-pack@fse-skills-pack
 ```
 
-### Desinstalar
+### Desinstalar (Claude Code)
 
 ```
 /plugin uninstall fse-skills-pack@fse-skills-pack
