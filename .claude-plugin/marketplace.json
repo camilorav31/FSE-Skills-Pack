@@ -1,0 +1,14 @@
+{
+  "name": "fse-skills-pack",
+  "owner": {
+    "name": "Camilo Ramirez",
+    "email": "juan.camilo@vtex.com"
+  },
+  "plugins": [
+    {
+      "name": "fse-skills-pack",
+      "source": "./plugins/fse-skills-pack",
+      "description": "Skills operativos para Field Software Engineers (FSE) de VTEX: redacción de respuestas a cliente y escalations, knowledge base de scope/escalación, known issues, lectura de tickets, WhatsApp Copilot y escalations a producto."
+    }
+  ]
+}
