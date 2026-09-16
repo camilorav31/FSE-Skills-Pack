@@ -40,7 +40,6 @@ Eso es todo. Claude Code descarga el repo, instala los skills y quedan disponibl
 ## Seguridad y mantenimiento
 
 - Este repo es **público**, pero no contiene datos de clientes, credenciales ni URLs internas — solo reglas de proceso y redacción. Antes de agregar un skill nuevo o editar uno existente, revisa que no incluya datos sensibles de una cuenta real.
-- Los cambios se distribuyen con un simple `git push` a `main`: cualquiera con acceso de escritura al repo puede publicar una nueva versión que el equipo recibe con `/plugin marketplace update`. Si el equipo crece, considera mover el repo a la organización de GitHub de VTEX y restringir quién puede hacer push a `main` (branch protection + revisión por PR) en vez de dejarlo en una cuenta personal.
 - Para editar un skill: modifica su `SKILL.md` en `plugins/fse-skills-pack/skills/<skill>/`, sube el cambio con un mensaje claro y, si aplica, sube el número de `version` en `plugins/fse-skills-pack/.claude-plugin/plugin.json`.
 
 ## Estructura del repo
