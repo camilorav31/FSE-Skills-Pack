@@ -13,7 +13,7 @@ La mayoría del equipo usa Cowork, así que este es el camino recomendado:
 1. Abre **Customize** en la barra lateral y entra a **Plugins**.
 2. Selecciona **Add marketplace** y pega `camilorav31/FSE-Skills-Pack` (o la URL completa `https://github.com/camilorav31/FSE-Skills-Pack`).
 3. Selecciona **Browse plugins**, busca **fse-skills-pack** y haz clic en **Install**.
-4. Abre el plugin instalado para ver los 6 skills; quedan activos automáticamente y se disparan solos según el contexto de la conversación (no hace falta invocarlos por nombre).
+4. Abre el plugin instalado para ver los 7 skills; quedan activos automáticamente y se disparan solos según el contexto de la conversación (no hace falta invocarlos por nombre).
 
 ### Actualizar (Cowork)
 
@@ -56,6 +56,7 @@ Eso es todo. Claude Code descarga el repo, instala los skills y quedan disponibl
 | `vtex-fse-known-issues` | Consulta el catálogo público de known issues de VTEX como validación adicional antes de escalar o responder. |
 | `vtex-fse-product-escalation` | Estructura el contenido completo de un ticket de escalación a Product Support para que puedan actuar sin pedir más información. |
 | `vtex-fse-client-writing` | Reglas de tono y formato para redactar la respuesta final a un cliente o el mensaje de escalation a producto. |
+| `vtex-fse-troubleshooter` | Catálogo de las herramientas del Troubleshooter interno (diagnóstico y correcciones por módulo) para redirigir al agente a la herramienta correcta según el síntoma del ticket. |
 | `fse-whatsapp-copilot` | Explica el Copilot interno de WhatsApp del equipo y genera la instrucción para consultarlo/operarlo durante el diagnóstico de un ticket. |
 
 ## Seguridad y mantenimiento
